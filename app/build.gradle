@@ -1,5 +1,5 @@
 
-import com.kudohq.quickstart.android.compose.buildsrc.Libs
+import com.sheldonirwin.quickstart.android.compose.buildsrc.Libs
 
 plugins {
     id "com.android.application"
@@ -10,7 +10,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.kudohq.quickstart.android.compose"
+        applicationId "com.sheldonirwin.quickstart.android.compose"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
