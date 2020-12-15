@@ -1,0 +1,62 @@
+
+import com.kudohq.quickstart.android.compose.buildsrc.Libs
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.kudohq.quickstart.android.compose"
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        //kotlinCompilerExtensionVersion compose_version
+        //kotlinCompilerVersion "1.4.20"
+        kotlinCompilerExtensionVersion Libs.AndroidX.Compose.version  //compose_version
+        kotlinCompilerVersion Libs.Kotlin.version
+    }
+}
+
+dependencies {
+    implementation(Libs.Kotlin.stdlib)
+    implementation(Libs.AndroidX.coreKtx)
+    implementation(Libs.AndroidX.appcompat)
+    implementation(Libs.Google.material)
+    implementation(Libs.AndroidX.Compose.ui)
+    implementation(Libs.AndroidX.Compose.material)
+    implementation(Libs.AndroidX.Compose.uiTooling)
+    implementation(Libs.AndroidX.Lifecycle.runtimeKtx)
+
+    implementation(Libs.AndroidX.Navigation.compose)
+
+    testImplementation(Libs.junit)
+    androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
+    androidTestImplementation(Libs.AndroidX.Test.espressoCore)
+}
